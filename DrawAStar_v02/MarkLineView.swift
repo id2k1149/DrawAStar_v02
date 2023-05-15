@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MarkLineView: View {
-    @Binding var progress: Double
+    @Binding var progress: [Double]
     
     var body: some View {
         let diameter = UIScreen.main.bounds.width * 0.9
@@ -27,7 +27,7 @@ struct MarkLineView: View {
                 )
                 
             }
-            .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
+            .trim(from: 0.0, to: CGFloat(min(self.progress[0], 1.0)))
             .stroke(Color.gray.opacity(0.5), lineWidth: 2)
             .animation(.linear(duration: 20),
                        value: progress)
@@ -41,6 +41,6 @@ struct MarkLineView: View {
 
 struct MarkLineView_Previews: PreviewProvider {
     static var previews: some View {
-        MarkLineView(progress: .constant(1.0))
+        MarkLineView(progress: .constant([0]))
     }
 }

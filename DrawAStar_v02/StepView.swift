@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StepView: View {
     @Binding var currentStep: Step
-    @Binding var progress: Double
+    @Binding var progress: [Double]
     
     var body: some View {
         let diameter = UIScreen.main.bounds.width * 0.9
@@ -85,6 +85,6 @@ enum Step: Int, CaseIterable {
 struct StepView_Previews: PreviewProvider {
     static var previews: some View {
         StepView(currentStep: .constant(Step(rawValue: 0) ?? Step.start),
-                 progress: .constant(0))
+                 progress: .constant([0]))
     }
 }

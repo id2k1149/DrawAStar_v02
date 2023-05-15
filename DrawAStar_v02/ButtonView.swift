@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ButtonView: View {
     @Binding var currentStep: Step
-    @Binding var progress: Double
+    @Binding var progress: [Double]
     
     var body: some View {
         HStack {
@@ -25,14 +25,20 @@ struct ButtonView: View {
             .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 4))
             
             Text(currentStep.rawValue.formatted())
-            Text(progress.formatted())
+            Text(progress[currentStep.rawValue].formatted())
+            
+            if currentStep.rawValue > 0 {
+                Text(progress[currentStep.rawValue - 1].formatted())
+                
+            }
+            
         }
     }
     
     private func buttonAction() {
         withAnimation {
+            progress[currentStep.rawValue] += 1.0
             currentStep = Step(rawValue: currentStep.rawValue + 1) ?? Step.start
-            progress += 1
         }
     }
 }
@@ -40,6 +46,6 @@ struct ButtonView: View {
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
         ButtonView(currentStep: .constant(Step.start),
-                   progress: .constant(0))
+                   progress: .constant([0]))
     }
 }

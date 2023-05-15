@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LessonView: View {
     @State private var currentStep = Step.start
-    @State private var progress: Double = 0
+    @State private var progress: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
     
     var body: some View {
        
@@ -21,7 +21,7 @@ struct LessonView: View {
             
             ButtonView(currentStep: $currentStep,
                        progress: $progress)
-            .padding(.bottom)
+            
             
             StepView(currentStep: $currentStep,
                      progress: $progress)
@@ -34,3 +34,5 @@ struct LessonView_Previews: PreviewProvider {
         LessonView()
     }
 }
+
+//progress: $progress[currentStep.rawValue])
