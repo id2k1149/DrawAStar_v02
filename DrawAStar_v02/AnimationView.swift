@@ -15,6 +15,11 @@ struct AnimationView: View {
         ZStack {
             CircleView(progress: $progress)
             MarkLineView(progress: $progress)
+            
+//            MarkView()
+//                .offset(y: -diameter / 2)
+//                .animation(.linear(duration: 5), value: progress[2])
+            
         }
     }
 }

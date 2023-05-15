@@ -12,7 +12,6 @@ struct LessonView: View {
     @State private var progress: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
     
     var body: some View {
-       
         VStack {
             Text("How to Draw a Star")
                 .font(.largeTitle)
@@ -21,7 +20,6 @@ struct LessonView: View {
             
             ButtonView(currentStep: $currentStep,
                        progress: $progress)
-            
             
             StepView(currentStep: $currentStep,
                      progress: $progress)
@@ -34,5 +32,3 @@ struct LessonView_Previews: PreviewProvider {
         LessonView()
     }
 }
-
-//progress: $progress[currentStep.rawValue])

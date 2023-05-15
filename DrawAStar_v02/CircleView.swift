@@ -18,15 +18,11 @@ struct CircleView: View {
 //                .stroke(Color.gray.opacity(0.5), lineWidth: 2)
                 
             Circle()
-                .trim(from: 0, to: CGFloat(min(progress[0], 1.0)))
+                .trim(from: 0, to: CGFloat(min(progress[1], 1.0)))
                 .stroke(Color.gray.opacity(0.5), lineWidth: 2)
                 .rotationEffect(Angle(degrees: -90))
-                .animation(.linear(duration: 5), value: progress)
+                .animation(.linear(duration: 5), value: progress[1])
                 
-//            Text(progress.formatted())
-//                .font(.largeTitle)
-//                .bold()
-//                .offset(x: diameter / 4)
         }
         .frame(width: diameter,
            height: diameter)
@@ -35,6 +31,6 @@ struct CircleView: View {
 
 struct CircleView_Previews: PreviewProvider {
     static var previews: some View {
-        CircleView(progress: .constant([1]))
+        CircleView(progress: .constant([0, 1, 0, 0, 0]))
     }
 }

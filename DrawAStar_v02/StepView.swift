@@ -25,18 +25,13 @@ struct StepView: View {
                               progress: $progress)
                 
                 
+                
+                
             }
-            .background(.orange)
+//            .background(.orange)
             .frame(width: diameter,
                    height: diameter)
-            
-//            Text(currentStep.rawValue.formatted())
-//            Text(progress.formatted())
-            
 
-            
-            
-        
             VStack(alignment: .leading)  {
                 if currentStep.rawValue == 0 {
                     Text("What You Will Need")

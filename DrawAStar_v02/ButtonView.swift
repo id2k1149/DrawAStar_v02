@@ -36,8 +36,8 @@ struct ButtonView: View {
     
     private func buttonAction() {
         withAnimation {
-            progress[currentStep.rawValue] += 1.0
             currentStep = Step(rawValue: currentStep.rawValue + 1) ?? Step.start
+            progress[currentStep.rawValue] += 1.0
             if currentStep.rawValue == 0 {
                 progress = [0.0, 0.0, 0.0, 0.0, 0.0]
             }
