@@ -25,7 +25,6 @@ struct LessonView: View {
             
             StepView(currentStep: $currentStep,
                      progress: $progress)
-            
         }
     }
 }
