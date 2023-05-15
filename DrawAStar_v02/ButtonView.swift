@@ -24,14 +24,13 @@ struct ButtonView: View {
             .cornerRadius(20)
             .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 4))
             
-            Text(currentStep.rawValue.formatted())
-            Text(progress[currentStep.rawValue].formatted())
-            
-            if currentStep.rawValue > 0 {
-                Text(progress[currentStep.rawValue - 1].formatted())
-                
+            HStack {
+                Text("\(lround(progress[0]))")
+                Text("\(lround(progress[1]))")
+                Text("\(lround(progress[2]))")
+                Text("\(lround(progress[3]))")
+                Text("\(lround(progress[4]))")
             }
-            
         }
     }
     
@@ -39,6 +38,9 @@ struct ButtonView: View {
         withAnimation {
             progress[currentStep.rawValue] += 1.0
             currentStep = Step(rawValue: currentStep.rawValue + 1) ?? Step.start
+            if currentStep.rawValue == 0 {
+                progress = [0.0, 0.0, 0.0, 0.0, 0.0]
+            }
         }
     }
 }

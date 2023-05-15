@@ -12,12 +12,15 @@ struct AnimationView: View {
     @Binding var progress: [Double]
     
     var body: some View {
-        CircleView(progress: $progress)
+        ZStack {
+            CircleView(progress: $progress)
+            MarkLineView(progress: $progress)
+        }
     }
 }
 
 struct AnimationView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimationView(currentStep: .constant(Step(rawValue: 1) ?? Step.one), progress: .constant([0]))
+        AnimationView(currentStep: .constant(Step(rawValue: 1) ?? Step.one), progress: .constant([1]))
     }
 }

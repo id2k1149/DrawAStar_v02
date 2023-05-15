@@ -10,8 +10,10 @@ import SwiftUI
 struct MarkLineView: View {
     @Binding var progress: [Double]
     
+    
     var body: some View {
         let diameter = UIScreen.main.bounds.width * 0.9
+//        let stepTwoProgress = progress[2]
 
         ZStack {
             Path {path in
