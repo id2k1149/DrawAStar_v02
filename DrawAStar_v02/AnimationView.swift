@@ -12,10 +12,7 @@ struct AnimationView: View {
     @Binding var progress: Double
     
     var body: some View {
-        
-            CircleView(progress: $progress)
-            
-        
+        CircleView(progress: $progress)
     }
 }
 

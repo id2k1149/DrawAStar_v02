@@ -23,10 +23,10 @@ struct CircleView: View {
                 .rotationEffect(Angle(degrees: -90))
                 .animation(.linear(duration: 5), value: progress)
                 
-            Text(progress.formatted())
-                .font(.largeTitle)
-                .bold()
-                .offset(x: diameter / 4)
+//            Text(progress.formatted())
+//                .font(.largeTitle)
+//                .bold()
+//                .offset(x: diameter / 4)
         }
         .frame(width: diameter,
            height: diameter)
@@ -35,6 +35,6 @@ struct CircleView: View {
 
 struct CircleView_Previews: PreviewProvider {
     static var previews: some View {
-        CircleView(progress: .constant(0))
+        CircleView(progress: .constant(1))
     }
 }
