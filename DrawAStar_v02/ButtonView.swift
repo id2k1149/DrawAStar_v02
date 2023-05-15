@@ -14,7 +14,7 @@ struct ButtonView: View {
     var body: some View {
         HStack {
             Button(action: buttonAction) {
-                Text(currentStep == Step.one ? "Start" : "Next step")
+                Text(currentStep == Step.start ? "Start" : "Next step")
                     .font(.largeTitle)
                     .bold()
                     .foregroundColor(.white)
@@ -31,7 +31,7 @@ struct ButtonView: View {
     
     private func buttonAction() {
         withAnimation {
-            currentStep = Step(rawValue: currentStep.rawValue + 1) ?? Step.one
+            currentStep = Step(rawValue: currentStep.rawValue + 1) ?? Step.start
             progress += 1
         }
     }
@@ -39,7 +39,7 @@ struct ButtonView: View {
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(currentStep: .constant(Step.one),
+        ButtonView(currentStep: .constant(Step.start),
                    progress: .constant(0))
     }
 }

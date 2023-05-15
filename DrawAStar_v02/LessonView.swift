@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct LessonView: View {
-//    @State private var currentStep = Step.start
-    @State private var currentStep = Step.one
+    @State private var currentStep = Step.start
+//    @State private var currentStep = Step.one
     @State private var progress: Double = 0
     
     
     var body: some View {
-        let diameter = UIScreen.main.bounds.width * 0.9
+       
         
         VStack {
             Text("How to Draw a Star")
@@ -26,6 +26,7 @@ struct LessonView: View {
                        progress: $progress)
                 .padding(.bottom)
             
+            /*
             ZStack {
                 if currentStep.rawValue > 0 {
                     CircleView(progress: $progress)
@@ -50,12 +51,14 @@ struct LessonView: View {
             }
             .frame(width: diameter,
                    height: diameter)
+             */
             
             
             ZStack {
-                StepView(currentStep: $currentStep)
+                StepView(currentStep: $currentStep,
+                         progress: $progress)
             }
-            .frame(width: diameter, height: 150)
+//            .frame(width: diameter, height: 150)
         }
     }
 }
