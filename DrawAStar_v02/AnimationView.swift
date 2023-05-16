@@ -15,6 +15,7 @@ struct AnimationView: View {
         ZStack {
             StepOneView(progress: $progress)
             StepTwoView(progress: $progress)
+            StepThreeView(progress: $progress, points: .constant(5))
             
 
             
