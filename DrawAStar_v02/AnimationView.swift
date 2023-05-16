@@ -13,12 +13,10 @@ struct AnimationView: View {
     
     var body: some View {
         ZStack {
-            CircleView(progress: $progress)
-            MarkLineView(progress: $progress)
+            StepOneView(progress: $progress)
+            StepTwoView(progress: $progress)
             
-//            MarkView()
-//                .offset(y: -diameter / 2)
-//                .animation(.linear(duration: 5), value: progress[2])
+
             
         }
     }

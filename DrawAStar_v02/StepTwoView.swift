@@ -1,5 +1,5 @@
 //
-//  MarkLineView.swift
+//  StepTwoView.swift
 //  CircleWithMarks
 //
 //  Created by Max Franz Immelmann on 5/14/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MarkLineView: View {
+struct StepTwoView: View {
     @Binding var progress: [Double]
     @State private var isAnimationComplete = false
     
@@ -21,18 +21,13 @@ struct MarkLineView: View {
             }
             .trim(from: 0.0, to: CGFloat(min(self.progress[2], 1.0)))
             .stroke(Color.gray.opacity(0.5), lineWidth: 2)
-            .animation(.linear(duration: 3), value: progress[2])
-            .onChange(of: progress) { newValue in
-                if newValue[2] == 1.0 {
-                    isAnimationComplete = true
-                }
-            }
+            .animation(.linear(duration: 2), value: progress[2])
             
-            if isAnimationComplete {
-                MarkView()
-                MarkView()
-                    .offset(y: -diameter / 2)
-            }
+//            if progress[2] == 1.0 {
+//                MarkView()
+//                MarkView()
+//                    .offset(y: -diameter / 2)
+//            }
         }
         .frame(width: diameter, height: diameter)
     }
@@ -41,6 +36,6 @@ struct MarkLineView: View {
 
 struct MarkLineView_Previews: PreviewProvider {
     static var previews: some View {
-        MarkLineView(progress: .constant([0, 0, 1, 0, 0]))
+        StepTwoView(progress: .constant([0, 0, 1, 0, 0]))
     }
 }

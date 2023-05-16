@@ -1,5 +1,5 @@
 //
-//  CircleView.swift
+//  StepOneView.swift
 //  CircleWithMarks
 //
 //  Created by Max Franz Immelmann on 5/12/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CircleView: View {
+struct StepOneView: View {
     @Binding var progress: [Double]
     
     var body: some View {
@@ -31,6 +31,6 @@ struct CircleView: View {
 
 struct CircleView_Previews: PreviewProvider {
     static var previews: some View {
-        CircleView(progress: .constant([0, 1, 0, 0, 0]))
+        StepOneView(progress: .constant([0, 1, 0, 0, 0]))
     }
 }
