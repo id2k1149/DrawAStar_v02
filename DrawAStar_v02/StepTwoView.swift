@@ -34,7 +34,7 @@ struct StepTwoView: View {
 }
 
 
-struct MarkLineView_Previews: PreviewProvider {
+struct StepTwoView_Previews: PreviewProvider {
     static var previews: some View {
         StepTwoView(progress: .constant([0, 0, 1, 0, 0]))
     }

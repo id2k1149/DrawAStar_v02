@@ -29,7 +29,7 @@ struct StepOneView: View {
     }
 }
 
-struct CircleView_Previews: PreviewProvider {
+struct StepOneView_Previews: PreviewProvider {
     static var previews: some View {
         StepOneView(progress: .constant([0, 1, 0, 0, 0]))
     }
