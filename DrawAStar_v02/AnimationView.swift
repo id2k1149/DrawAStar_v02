@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AnimationView: View {
+    @Binding var points: Int
     @Binding var currentStep: Step
     @Binding var progress: [Double]
     
@@ -15,7 +16,7 @@ struct AnimationView: View {
         ZStack {
             StepOneView(progress: $progress)
             StepTwoView(progress: $progress)
-            StepThreeView(progress: $progress, points: .constant(5))
+            StepThreeView(progress: $progress, points: $points)
             
 
             
@@ -25,6 +26,8 @@ struct AnimationView: View {
 
 struct AnimationView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimationView(currentStep: .constant(Step(rawValue: 1) ?? Step.one), progress: .constant([1]))
+        AnimationView(points: .constant(5),
+                      currentStep: .constant(Step(rawValue: 1) ?? Step.one),
+                      progress: .constant([1]))
     }
 }

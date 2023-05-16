@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StepView: View {
+    @Binding var points: Int
     @Binding var currentStep: Step
     @Binding var progress: [Double]
     
@@ -21,11 +22,9 @@ struct StepView: View {
                 StartView()
                     .offset(x: currentStep.rawValue == 0 ? 0 : -diameter)
                     
-                AnimationView(currentStep: $currentStep,
+                AnimationView(points: $points,
+                              currentStep: $currentStep,
                               progress: $progress)
-                
-                
-                
                 
             }
 //            .background(.orange)
@@ -44,7 +43,7 @@ struct StepView: View {
                 }
                 Text(currentStep.instructions)
             }
-            .background(.orange)
+//            .background(.orange)
             .frame(width: diameter,
                    height: diameter / 2)
         }
@@ -79,7 +78,8 @@ enum Step: Int, CaseIterable {
 
 struct StepView_Previews: PreviewProvider {
     static var previews: some View {
-        StepView(currentStep: .constant(Step(rawValue: 0) ?? Step.start),
+        StepView(points: .constant(5),
+                 currentStep: .constant(Step(rawValue: 0) ?? Step.start),
                  progress: .constant([0]))
     }
 }

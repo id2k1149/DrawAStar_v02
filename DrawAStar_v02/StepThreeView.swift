@@ -13,14 +13,14 @@ struct StepThreeView: View {
     
     var body: some View {
         let diameter = UIScreen.main.bounds.width * 0.9
-        let angle = 360 / 5
+        let angle = 360 / points
         
         ZStack {
             Text("\(angle)º")
                 .font(.title)
                 .offset(x: progress[3] == 0 ? -diameter : diameter / 12,
                         y: -diameter / 10)
-            ForEach(0..<5, id: \.self) { iteration in
+            ForEach(0..<points, id: \.self) { iteration in
                 ZStack {
                     Path { path in
                         path.move(to: CGPoint(x: diameter / 2, y: diameter / 2))

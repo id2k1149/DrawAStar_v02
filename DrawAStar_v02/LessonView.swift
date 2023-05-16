@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LessonView: View {
+    @State private var points: Int = 5
     @State private var currentStep = Step.start
     @State private var progress: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
     
@@ -21,7 +22,8 @@ struct LessonView: View {
             ButtonView(currentStep: $currentStep,
                        progress: $progress)
             
-            StepView(currentStep: $currentStep,
+            StepView(points: $points,
+                     currentStep: $currentStep,
                      progress: $progress)
         }
     }
