@@ -18,16 +18,21 @@ struct StepView: View {
         
         VStack(alignment: .leading)  {
             ZStack {
-               
-                StartView()
-                    .offset(x: currentStep.rawValue == 0 ? 0 : -diameter)
-                    
+                
+                if currentStep.rawValue == 0 {
+                    StartView()
+//                        .offset(x: currentStep.rawValue == 0 ? 0 : -diameter)
+                }
+                
                 AnimationView(points: $points,
                               currentStep: $currentStep,
                               progress: $progress)
                 
+                if currentStep.rawValue == 5 {
+                    StarView(points: $points, isSimple: true)
+                }
+                
             }
-//            .background(.orange)
             .frame(width: diameter,
                    height: diameter)
 
@@ -43,7 +48,6 @@ struct StepView: View {
                 }
                 Text(currentStep.instructions)
             }
-//            .background(.orange)
             .frame(width: diameter,
                    height: diameter / 2)
         }
@@ -59,19 +63,22 @@ enum Step: Int, CaseIterable {
     case two = 2
     case three = 3
     case four = 4
+    case five = 5
     
     var instructions: String {
         switch self {
         case .start:
             return "You will need the following equipment.\n - a graphite pencil \n - a pair of compasses \n - a ruler \n - an eraser \n - drawing paper"
         case .one:
-            return "Draw a relatively big circle"
+            return "Learn how to draw a star the easy way. Just mark the central point with a pencil, and then draw a relatively big circle of an arbitrary radius, using the compass."
         case .two:
-            return "Add a vertical line."
+            return "Add a vertical line that is going from the central point of the circle."
         case .three:
-            return "Add more lines."
+            return "Let’s find the first sector with a protractor. Then add more lines. Now we have a few sectors; the points where the lines cross the circumference will be the apexes of our star."
         case .four:
-            return "Connect all the points"
+            return "Connect all the points with a straight line. The shape is complete!"
+        case .five:
+            return "Outline the contours of the star, and then erase the unnecessary captions."
         }
     }
 }

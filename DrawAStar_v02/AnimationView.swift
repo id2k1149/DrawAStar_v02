@@ -14,12 +14,13 @@ struct AnimationView: View {
     
     var body: some View {
         ZStack {
-            StepOneView(progress: $progress)
+            StepOneView(progress: $progress,
+                        currentStep: $currentStep)
             StepTwoView(progress: $progress)
-            StepThreeView(progress: $progress, points: $points)
-            
-
-            
+            StepThreeView(progress: $progress,
+                          currentStep: $currentStep,
+                          points: $points)
+            StepFourView(progress: $progress, points: $points)
         }
     }
 }

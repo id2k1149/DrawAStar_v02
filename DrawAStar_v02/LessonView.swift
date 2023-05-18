@@ -10,7 +10,7 @@ import SwiftUI
 struct LessonView: View {
     @State private var points: Int = 5
     @State private var currentStep = Step.start
-    @State private var progress: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
+    @State private var progress: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     
     var body: some View {
         VStack {

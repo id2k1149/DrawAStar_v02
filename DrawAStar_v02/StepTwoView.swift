@@ -20,14 +20,9 @@ struct StepTwoView: View {
                 path.addLine(to: CGPoint(x: diameter / 2, y: -10))
             }
             .trim(from: 0.0, to: CGFloat(min(self.progress[2], 1.0)))
-            .stroke(Color.gray.opacity(0.5), lineWidth: 2)
+            .stroke(Color.gray.opacity(0.3), lineWidth: 2)
             .animation(.linear(duration: 2), value: progress[2])
-            
-//            if progress[2] == 1.0 {
-//                MarkView()
-//                MarkView()
-//                    .offset(y: -diameter / 2)
-//            }
+ 
         }
         .frame(width: diameter, height: diameter)
     }
