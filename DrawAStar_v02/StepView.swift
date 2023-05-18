@@ -70,7 +70,7 @@ enum Step: Int, CaseIterable {
         case .start:
             return "You will need the following equipment.\n - a graphite pencil \n - a pair of compasses \n - a ruler \n - an eraser \n - drawing paper"
         case .one:
-            return "Learn how to draw a star the easy way. Just mark the central point with a pencil, and then draw a relatively big circle of an arbitrary radius, using the compass."
+            return "Just mark the central point with a pencil, and then draw a relatively big circle of an arbitrary radius, using the compass."
         case .two:
             return "Add a vertical line that is going from the central point of the circle."
         case .three:

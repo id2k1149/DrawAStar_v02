@@ -14,12 +14,12 @@ struct ButtonView: View {
     var body: some View {
         HStack {
             Button(action: buttonAction) {
-                Text(currentStep == Step.start ? "Start" : "Next step")
+                Text(currentStep == Step.five ? "Watch again" : "Next step")
                     .font(.largeTitle)
                     .bold()
                     .foregroundColor(.white)
             }
-            .frame(width: 200, height: 60)
+            .frame(width: 250, height: 60)
             .background(.blue)
             .cornerRadius(20)
             .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 4))
