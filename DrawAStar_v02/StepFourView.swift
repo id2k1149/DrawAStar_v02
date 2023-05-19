@@ -24,9 +24,40 @@ struct StepFourView: View {
             return (x: dotX, y: dotY)
         }
         
-        var coordinates: [(x: CGFloat, y: CGFloat)] {
-            var newArray = [(x: CGFloat, y: CGFloat)]()
+        var coordinates = getCoordinates(for: points, in: initial)
             
+        return ZStack {
+            Path { path in
+                if coordinates.last?.x == coordinates.first?.x
+                    && coordinates.last?.y == coordinates.first?.y {
+                    
+                    path.addLines(coordinates.map { CGPoint(x: $0.x, y: $0.y) })
+                    
+                } else {
+                    let firstHalf = coordinates.prefix(coordinates.count / 2)
+                    path.addLines(firstHalf.map { CGPoint(x: $0.x, y: $0.y) })
+                    
+                    let secondHalf = coordinates.suffix(coordinates.count / 2)
+                    path.addLines(secondHalf.map { CGPoint(x: $0.x, y: $0.y) })
+                    
+                }
+            }
+            .trim(from: 0.0, to: CGFloat(min(self.progress[4], 1.0)))
+            .stroke(Color.gray.opacity(0.3), lineWidth: 2)
+            .animation(.linear(duration: 5),
+                       value: progress)
+        }
+        .frame(width: diameter, height: diameter)
+    }
+    
+    private func getCoordinates(for points: Int,
+                                in initial: [(x: CGFloat, y: CGFloat)]) ->
+    [(x: CGFloat, y: CGFloat)] {
+        
+        var newArray = [(x: CGFloat, y: CGFloat)]()
+        
+        if points != 8 {
+        
             if initial.count % 2 != 0 {
                 
                 for (index, element) in initial.enumerated() {
@@ -60,37 +91,38 @@ struct StepFourView: View {
                 
                 newArray.append(initial[1])
             }
-            return newArray
-        }
-         
-        return ZStack {
-            Path { path in
-                if coordinates.last?.x == coordinates.first?.x
-                    && coordinates.last?.y == coordinates.first?.y {
-                    
-                    path.addLines(coordinates.map { CGPoint(x: $0.x, y: $0.y) })
-        
-                } else {
-                    let firstHalf = coordinates.prefix(coordinates.count / 2)
-                    path.addLines(firstHalf.map { CGPoint(x: $0.x, y: $0.y) })
-                    
-                    let secondHalf = coordinates.suffix(coordinates.count / 2)
-                    path.addLines(secondHalf.map { CGPoint(x: $0.x, y: $0.y) })
-                    
+           
+        } else {
+            
+            for (index, element) in initial.enumerated() {
+                if index % 3 == 0 {
+                    newArray.append(element)
                 }
             }
-            .trim(from: 0.0, to: CGFloat(min(self.progress[4], 1.0)))
-            .stroke(Color.gray.opacity(0.3), lineWidth: 2)
-            .animation(.linear(duration: 5),
-                       value: progress)
+            
+            for (index, element) in initial.enumerated() {
+                if index % 3 == 1 {
+                    newArray.append(element)
+                }
+            }
+            
+            for (index, element) in initial.enumerated() {
+                if index % 3 == 2 {
+                    newArray.append(element)
+                }
+            }
+            
+            newArray.append(initial[0])
+            
         }
-        .frame(width: diameter, height: diameter)
+        return newArray
     }
+    
 }
 
 struct StepFourView_Previews: PreviewProvider {
     static var previews: some View {
         StepFourView(progress: .constant([0, 0, 0, 0, 1]),
-                     points: .constant(5))
+                     points: .constant(8))
     }
 }
