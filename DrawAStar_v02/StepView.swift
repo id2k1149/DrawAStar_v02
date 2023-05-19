@@ -7,6 +7,58 @@
 
 import SwiftUI
 
+struct StepView: View {
+    @Binding var points: Int
+    @Binding var currentStep: Step
+    @Binding var progress: [Double]
+    
+    var body: some View {
+        let diameter = UIScreen.main.bounds.width * 0.9
+        let stepViewHeight = UIScreen.main.bounds.height * 0.7
+        
+        VStack(alignment: .leading)  {
+            ZStack {
+                
+                if currentStep.rawValue == 0 {
+                    StartView()
+                        .transition(.scale)
+                        .animation(.linear(duration: 2),
+                                   value: progress[0])
+                }
+                
+                AnimationView(points: $points,
+                              currentStep: $currentStep,
+                              progress: $progress)
+                
+                if currentStep.rawValue == 5 {
+                    StarView(points: $points, isSimple: true)
+                }
+                
+            }
+            .frame(width: diameter,
+                   height: diameter)
+
+            VStack(alignment: .leading)  {
+                if currentStep.rawValue == 0 {
+                    Text("What You Will Need")
+                        .font(.largeTitle)
+                        .bold()
+                } else {
+                    Text("Step \(currentStep.rawValue)")
+                        .font(.largeTitle)
+                        .bold()
+                }
+                Text(currentStep.instructions)
+            }
+            .frame(width: diameter,
+                   height: diameter / 2)
+        }
+        .frame(width: diameter,
+               height: stepViewHeight)
+        
+    }
+}
+
 enum Step: Int, CaseIterable {
     case start = 0
     case one = 1
@@ -14,48 +66,29 @@ enum Step: Int, CaseIterable {
     case three = 3
     case four = 4
     case five = 5
-    case six = 6
     
     var instructions: String {
         switch self {
         case .start:
-            return ""
+            return "You will need the following equipment.\n - a graphite pencil \n - a pair of compasses \n - a ruler \n - an eraser \n - drawing paper"
         case .one:
-            return ""
+            return "Just mark the central point with a pencil, and then draw a relatively big circle of an arbitrary radius, using the compass."
         case .two:
-            return "Draw a relatively big circle of an arbitrary radius."
-        case .three:
             return "Add a vertical line that is going from the central point of the circle."
+        case .three:
+            return "Let’s find the first sector with a protractor. Then add more lines. Now we have 5 sectors; the points where the lines cross the circumference will be the apexes of our star."
         case .four:
-            return "Let’s find the first sector with a protractor; its angle should be 72°. Add more lines. Now we have five sectors; the points where the lines cross the circumference will be the apexes of our star."
+            return "Connect all the points with a straight line. The shape is complete!"
         case .five:
-            return "Connect all points"
-        case .six:
-            return "#6 Draw a small circle. It’s important to leave enough space around this circle."
+            return "Outline the contours of the star, and then erase the unnecessary captions."
         }
-    }
-}
-
-struct StepView: View {
-    @Binding var currentStep: Step
-    
-    var body: some View {
-        let diameter = UIScreen.main.bounds.width * 0.9
-        
-        VStack (alignment: .leading) {
-//            Image(<#T##String#>, label: <#T##SwiftUI.Text#>)
-            Text("Step \(currentStep.rawValue - 1)")
-                .font(.largeTitle)
-                .bold()
-            
-            Text(currentStep.instructions)
-        }
-        
     }
 }
 
 struct StepView_Previews: PreviewProvider {
     static var previews: some View {
-        StepView(currentStep: .constant(Step(rawValue: 2) ?? Step.one))
+        StepView(points: .constant(5),
+                 currentStep: .constant(Step(rawValue: 0) ?? Step.start),
+                 progress: .constant([0]))
     }
 }
