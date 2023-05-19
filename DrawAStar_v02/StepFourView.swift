@@ -120,7 +120,7 @@ struct StepFourView: View {
 
 struct StepFourView_Previews: PreviewProvider {
     static var previews: some View {
-        StepFourView(progress: .constant([0, 0, 0, 0, 1]),
+        StepFourView(progress: .constant([0, 0, 0, 0, 1, 0]),
                      points: .constant(5))
     }
 }

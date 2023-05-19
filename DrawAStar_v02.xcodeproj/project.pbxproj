@@ -13,7 +13,6 @@
 		50276AF02A12574400937E37 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50276AEF2A12574400937E37 /* Preview Assets.xcassets */; };
 		50276AF72A1257F600937E37 /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50276AF62A1257F600937E37 /* LessonView.swift */; };
 		50276AF92A12580300937E37 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50276AF82A12580300937E37 /* StepView.swift */; };
-		50276AFB2A12581300937E37 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50276AFA2A12581300937E37 /* ListView.swift */; };
 		50276AFD2A12581F00937E37 /* StepOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50276AFC2A12581F00937E37 /* StepOneView.swift */; };
 		50276AFF2A12582B00937E37 /* MarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50276AFE2A12582A00937E37 /* MarkView.swift */; };
 		50276B012A12583400937E37 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50276B002A12583400937E37 /* ButtonView.swift */; };
@@ -35,7 +34,6 @@
 		50276AEF2A12574400937E37 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		50276AF62A1257F600937E37 /* LessonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
 		50276AF82A12580300937E37 /* StepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
-		50276AFA2A12581300937E37 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		50276AFC2A12581F00937E37 /* StepOneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepOneView.swift; sourceTree = "<group>"; };
 		50276AFE2A12582A00937E37 /* MarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkView.swift; sourceTree = "<group>"; };
 		50276B002A12583400937E37 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 				503EDB972A15A382008446A5 /* StepFourView.swift */,
 				503EDB992A15B03D008446A5 /* StepFiveView.swift */,
 				50276AFE2A12582A00937E37 /* MarkView.swift */,
-				50276AFA2A12581300937E37 /* ListView.swift */,
 				50276B002A12583400937E37 /* ButtonView.swift */,
 				503EDB9B2A15B1D5008446A5 /* DiamondView.swift */,
 				503EDB9D2A15B2F3008446A5 /* StarView.swift */,
@@ -190,7 +187,6 @@
 				50276AF92A12580300937E37 /* StepView.swift in Sources */,
 				503EDB982A15A382008446A5 /* StepFourView.swift in Sources */,
 				50276AEB2A12574200937E37 /* ContentView.swift in Sources */,
-				50276AFB2A12581300937E37 /* ListView.swift in Sources */,
 				50276AF72A1257F600937E37 /* LessonView.swift in Sources */,
 				50276B032A12583D00937E37 /* StepTwoView.swift in Sources */,
 				503EDB9E2A15B2F3008446A5 /* StarView.swift in Sources */,

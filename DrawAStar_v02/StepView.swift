@@ -21,7 +21,9 @@ struct StepView: View {
                 
                 if currentStep.rawValue == 0 {
                     StartView()
-//                        .offset(x: currentStep.rawValue == 0 ? 0 : -diameter)
+                        .transition(.scale)
+                        .animation(.linear(duration: 2),
+                                   value: progress[0])
                 }
                 
                 AnimationView(points: $points,
@@ -74,7 +76,7 @@ enum Step: Int, CaseIterable {
         case .two:
             return "Add a vertical line that is going from the central point of the circle."
         case .three:
-            return "Let’s find the first sector with a protractor. Then add more lines. Now we have a few sectors; the points where the lines cross the circumference will be the apexes of our star."
+            return "Let’s find the first sector with a protractor. Then add more lines. Now we have 5 sectors; the points where the lines cross the circumference will be the apexes of our star."
         case .four:
             return "Connect all the points with a straight line. The shape is complete!"
         case .five:

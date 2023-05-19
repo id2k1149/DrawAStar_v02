@@ -35,7 +35,7 @@ struct StepOneView: View {
 
 struct StepOneView_Previews: PreviewProvider {
     static var previews: some View {
-        StepOneView(progress: .constant([0, 1, 0, 0, 0]),
+        StepOneView(progress: .constant([0, 1, 0, 0, 0, 0]),
                     currentStep: .constant(.one))
     }
 }

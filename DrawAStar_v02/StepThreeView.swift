@@ -21,7 +21,7 @@ struct StepThreeView: View {
                 .font(.title3)
                 .offset(x: progress[3] == 0 ? -diameter : diameter / 18,
                         y: -diameter / 10)
-                .animation(.linear(duration: 2), value: progress[3])
+                .animation(.linear(duration: 1), value: progress[3])
             
             ForEach(0..<points, id: \.self) { iteration in
                 ZStack {
@@ -50,7 +50,7 @@ struct StepThreeView: View {
 
 struct StepThreeView_Previews: PreviewProvider {
     static var previews: some View {
-        StepThreeView(progress: .constant([0, 0, 0, 1, 0]),
+        StepThreeView(progress: .constant([0, 0, 0, 1, 0, 0]),
                       currentStep: .constant(.three),
                       points: .constant(5))
     }

@@ -9,19 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView {
-            LessonView()
-                .tabItem {
-                    Label("5 Points Star",
-                          systemImage: "star")
-                }
-            
-            ListView()
-                .tabItem {
-                    Label("Star List",
-                          systemImage: "list.bullet")
-                }
-        }
+        LessonView()
     }
 }
 

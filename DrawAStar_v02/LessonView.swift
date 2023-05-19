@@ -17,14 +17,18 @@ struct LessonView: View {
             Text("How to Draw a Star")
                 .font(.largeTitle)
                 .bold()
-                .padding()
             
-            ButtonView(currentStep: $currentStep,
-                       progress: $progress)
-            
+            Image(systemName: "star.fill")
+                .resizable()
+                .foregroundColor(.blue)
+                .frame(width: 50, height: 50)
+                
             StepView(points: $points,
                      currentStep: $currentStep,
                      progress: $progress)
+            
+            ButtonView(currentStep: $currentStep,
+                       progress: $progress)
         }
     }
 }
