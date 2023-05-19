@@ -113,11 +113,9 @@ struct StepFourView: View {
             }
             
             newArray.append(initial[0])
-            
         }
         return newArray
     }
-    
 }
 
 struct StepFourView_Previews: PreviewProvider {
